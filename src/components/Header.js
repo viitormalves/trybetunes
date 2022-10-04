@@ -12,10 +12,14 @@ class Header extends React.Component {
     };
   }
 
-  async componentDidMount() { // função async para fazer a requisição do nome de usuário na API
+  componentDidMount() {
+    this.handlegetUser(); // função async para fazer a requisição do nome de usuário na API
+  }
+
+  handlegetUser = async () => {
     const user = await getUser();
     this.setState({ user });
-  }
+  };
 
   render() {
     const { user } = this.state;
