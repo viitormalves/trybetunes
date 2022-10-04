@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Loading from '../pages/Loading';
 import { getUser } from '../services/userAPI';
+import './Header.css';
 
 class Header extends React.Component {
   constructor() {
@@ -25,9 +26,27 @@ class Header extends React.Component {
           <>
             <p data-testid="header-user-name">{ user.name }</p>
             <nav>
-              <Link to="/search" data-testid="link-to-search">Pesquisar</Link>
-              <Link to="/favorites" data-testid="link-to-favorites">Favoritos</Link>
-              <Link to="/profile" data-testid="link-to-profile">Perfil</Link>
+              <NavLink
+                to="/search"
+                data-testid="link-to-search"
+                activeClassName="active"
+              >
+                Pesquisar
+              </NavLink>
+              <NavLink
+                to="/favorites"
+                data-testid="link-to-favorites"
+                activeClassName="active"
+              >
+                Favoritos
+              </NavLink>
+              <NavLink
+                to="/profile"
+                data-testid="link-to-profile"
+                activeClassName="active"
+              >
+                Perfil
+              </NavLink>
             </nav>
           </>
         ) : <Loading />}
