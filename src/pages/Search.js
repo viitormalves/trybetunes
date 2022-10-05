@@ -51,7 +51,7 @@ class Search extends React.Component {
           <form>
             <input
               type="text"
-              placeholder="Nome do Artista ou da Banda"
+              placeholder="Nome do Artista"
               name="search"
               onChange={ this.handleOnInputChange }
               value={ search }

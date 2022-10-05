@@ -41,7 +41,6 @@ class Login extends React.Component {
 
     return (
       <div data-testid="page-login">
-        page-login
         <form>
           <label htmlFor="name">
             Login:
@@ -52,6 +51,7 @@ class Login extends React.Component {
               name="name"
               value={ name }
               onChange={ this.handleOnInputChange }
+              placeholder="Insira seu nome"
             />
           </label>
           <button
