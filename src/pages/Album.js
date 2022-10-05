@@ -33,7 +33,7 @@ class Album extends React.Component {
   render() {
     // console.log(typeof this.props.match.params.id);
     const { albumData, songs, isLoading } = this.state;
-    console.log(songs);
+    console.log(albumData);
     return (
       <>
         <Header />
@@ -57,6 +57,7 @@ class Album extends React.Component {
                 key={ song.trackId }
                 trackName={ song.trackName }
                 previewUrl={ song.previewUrl }
+                trackId={ song.trackId }
               />
             ))
           }
