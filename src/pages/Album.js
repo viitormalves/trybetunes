@@ -10,7 +10,7 @@ class Album extends React.Component {
     super();
     this.state = {
       albumData: [],
-      songs: [],
+      album: [],
       isLoading: true,
     };
   }
@@ -22,18 +22,19 @@ class Album extends React.Component {
   hangleGetMusics = async () => {
     const { match: { params: { id } } } = this.props;
     const data = await getMusics(id);
-    const songsFilter = data.filter((el, i) => i === 0);
+    const AlbumFilter = data.filter((obj, i) => i === 0); // filtra o primeiro objeto, que contem as info do album.
+    // const songsFilter = data.filter((obj, i) => i !== 0);
     this.setState({
       albumData: data,
-      songs: songsFilter,
+      album: AlbumFilter,
       isLoading: false,
     });
   };
 
   render() {
     // console.log(typeof this.props.match.params.id);
-    const { albumData, songs, isLoading } = this.state;
-    console.log(albumData);
+    const { albumData, album, isLoading } = this.state;
+    // console.log(songs);
     return (
       <>
         <Header />
@@ -42,7 +43,7 @@ class Album extends React.Component {
             isLoading
               ? <Loading />
               : (
-                songs.map((data) => (
+                album.map((data) => (
                   <div key={ data.collectionId }>
                     <img src={ data.artworkUrl100 } alt={ data.collectionName } />
                     <h3 data-testid="album-name">{ data.collectionName }</h3>
@@ -58,6 +59,7 @@ class Album extends React.Component {
                 trackName={ song.trackName }
                 previewUrl={ song.previewUrl }
                 trackId={ song.trackId }
+                song={ song }
               />
             ))
           }
