@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Loading from './Loading';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import './Search.css';
 
 class Search extends React.Component {
   constructor() {
@@ -31,7 +32,7 @@ class Search extends React.Component {
   };
 
   handleSearch = async () => { // Faz a requisição async da API. Ativa e desativa o isLoading para o carregamento. Verifica se o conteúdo é vazio e salva pesquisa;
-    this.setState({ isLoading: true });
+    this.setState({ isLoading: true, empySearch: false });
     const { search } = this.state;
     const data = await searchAlbumsAPI(search);
     if (data.length === 0) {
@@ -43,12 +44,11 @@ class Search extends React.Component {
 
   render() {
     const { search, isLoading, albums, lastsearch, empySearch } = this.state;
-
     return (
       <>
         <Header />
         <div data-testid="page-search">
-          <form>
+          <form className="form-container">
             <input
               type="text"
               placeholder="Nome do Artista"
@@ -56,6 +56,7 @@ class Search extends React.Component {
               onChange={ this.handleOnInputChange }
               value={ search }
               data-testid="search-artist-input"
+              className="input-search"
             />
             <button
               type="button"
@@ -63,28 +64,39 @@ class Search extends React.Component {
               disabled={ !this.handleValidationSearch() }
               onClick={ this.handleSearch }
               data-testid="search-artist-button"
+              className="button-search"
             >
               Pesquisar
             </button>
           </form>
           <div>
             { isLoading && <Loading /> }
-            { empySearch && <p>Nenhum álbum foi encontrado</p> }
-            { albums.length > 0 && <p>{`Resultado de álbuns de: ${lastsearch}`}</p> }
-            <ul>
+            { empySearch && <p className="p-found">Nenhum álbum foi encontrado</p> }
+            { albums.length > 0
+            && (
+              <p
+                className="p-found"
+              >
+                {`Resultado de álbuns de: ${lastsearch}`}
+              </p>
+            )}
+            <ul className="ul-album">
               {
                 albums.map((album) => (
-                  <li key={ album.collectionId }>
-                    <Link to={ `/album/${album.collectionId}` }>
+                  <div key={ album.collectionId } className="div-container">
+                    <Link to={ `/album/${album.collectionId}` } className="link">
                       <img
                         src={ album.artworkUrl100 }
                         alt={ album.collectionName }
                         data-testid={ `link-to-album-${album.collectionId}` }
+                        className="img-album"
                       />
-                      <p>{ album.collectionName }</p>
-                      <p>{ album.artistName }</p>
+                      <div className="div-album">
+                        <p className="p-album">{ album.collectionName }</p>
+                        <p className="p-artist">{ album.artistName }</p>
+                      </div>
                     </Link>
-                  </li>
+                  </div>
                 ))
               }
             </ul>

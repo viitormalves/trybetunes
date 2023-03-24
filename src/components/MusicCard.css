@@ -1,0 +1,93 @@
+.div-musics {
+    /* margin-top: 50px; */
+    width: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-right: 10%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-color: rgba(255, 255, 255, 0.603);
+    padding: 15px;
+    margin-left: 88px;
+    border-radius: 20px;
+    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.3);
+}
+
+.div-musics:hover {
+    background-color: rgba(171, 193, 240, 0.493);
+}
+
+.name-music {
+    width: 330px;
+    margin-left: 5px;
+}
+
+.label-music {
+    display: flex;
+    justify-content: flex-end;
+    width: 200px;
+}
+
+.audio {
+    width: 500px;
+    margin-right: 10px;
+}
+
+/* .checkbox-fav {
+    width: 3.6rem;
+    height: 1.7rem;
+    background-color: #dedede;
+    border-radius: 32px;
+} */
+
+/* #favorite {
+    display: none;
+}
+
+.toggle {
+    width: 1.7rem;
+    height: 1.7rem;
+    display: block;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #0084ff81;
+    border: 1px solid #ffffff;
+    border-radius: 32px;
+    box-shadow: none;
+    box-sizing: border-box;
+    transition: .3s cubic-bezier(0.895, 0.07, 0.685, 0.68);
+}
+
+.toggle::before {
+    content: 'On';
+    color: #832626;
+    text-transform: uppercase;
+    font-size: 0;
+    position: absolute;
+}
+
+.toggle::after {
+    color: rgb(53, 153, 153);
+    text-transform: uppercase;
+    font-size: 0.6em;
+    left: 10px;
+    position: absolute;
+}
+
+#favorite:checked + .toggle {
+    left: 3.7rem;
+    background-color: #0084ff;
+
+}
+
+#favorite:checked + .toggle::after {
+    font-size: 0;
+}
+
+#favorite:checked + .toggle::before {
+    font-size: 1rem;
+} */

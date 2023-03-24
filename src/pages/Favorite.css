@@ -1,0 +1,36 @@
+.div-favorite {
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.603);
+  border-radius: 13px;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  margin-left: 15%;
+  margin-right: 12%;
+  padding: 10px;
+  box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.2);
+}
+
+.div-favorite:hover {
+  background-color: rgba(171, 193, 240, 0.493);
+}
+
+.pp {
+  height: min-content;
+  margin-left: 40px;
+  text-align: justify;
+  width: 400px;
+}
+
+.img-favorite {
+  border-radius: 13px;
+  height: 100px;
+  width: 100px;
+}
+
+.p-album3 {
+  color: #000000c7;
+  font-style: normal;
+  font-family: 'Epilogue';
+  font-weight: 700;
+}

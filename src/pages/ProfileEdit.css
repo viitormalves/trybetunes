@@ -1,0 +1,31 @@
+.p-profileEdit {
+    font-family: 'Epilogue';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    color: #3D495C;
+    margin: 10px;
+    margin-left: 130px;
+    width: 100px;
+}
+
+.img-profileEdit {
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 200px;
+}
+
+.input-profileEdit {
+    width: 340px;
+    height: 40px;
+    background: #b3b3b333;
+    border-radius: 23px;
+    margin: 10px;
+    font-family: 'Epilogue';
+    text-align: center;
+    border: none;
+}

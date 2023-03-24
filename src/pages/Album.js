@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
 import Loading from './Loading';
+import './Album.css';
 
 class Album extends React.Component {
   constructor() {
@@ -38,31 +39,47 @@ class Album extends React.Component {
     return (
       <>
         <Header />
-        <div data-testid="page-album">
+        <div data-testid="page-album" className="page-album">
           {
             isLoading
               ? <Loading />
               : (
                 album.map((data) => (
-                  <div key={ data.collectionId }>
-                    <img src={ data.artworkUrl100 } alt={ data.collectionName } />
-                    <h3 data-testid="album-name">{ data.collectionName }</h3>
-                    <p data-testid="artist-name">{ data.artistName }</p>
+                  <div key={ data.collectionId } className="div-album3">
+                    <img
+                      src={ data.artworkUrl100 }
+                      alt={ data.collectionName }
+                      className="img-album2"
+                    />
+                    <h3
+                      data-testid="album-name"
+                      className="p-album2"
+                    >
+                      { data.collectionName }
+                    </h3>
+                    <p
+                      data-testid="artist-name"
+                      className="p-artist2"
+                    >
+                      { data.artistName }
+                    </p>
                   </div>
                 ))
               )
           }
-          {
-            albumData.filter((obj) => obj.kind === 'song').map((song) => (
-              <MusicCard
-                key={ song.trackId }
-                trackName={ song.trackName }
-                previewUrl={ song.previewUrl }
-                trackId={ song.trackId }
-                song={ song }
-              />
-            ))
-          }
+          <div>
+            {
+              albumData.filter((obj) => obj.kind === 'song').map((song) => (
+                <MusicCard
+                  key={ song.trackId }
+                  trackName={ song.trackName }
+                  previewUrl={ song.previewUrl }
+                  trackId={ song.trackId }
+                  song={ song }
+                />
+              ))
+            }
+          </div>
         </div>
       </>
     );
